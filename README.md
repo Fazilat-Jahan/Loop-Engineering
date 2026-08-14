@@ -1,6 +1,6 @@
 # Loop Engineering Practice
 
-Hands-on practice with **Loop Engineering, Agentic AI, AI Agents, and autonomous workflows** using Claude Code and OpenCode.
+Hands-on practice with **Loop Engineering** using Claude Code.
 
 This repository contains my practical implementations from the **Loop Engineering: A Crash Course** by Panaversity.
 
