@@ -1,0 +1,55 @@
+name: Doorbell Loop - Event Heartbeat
+
+# Event-driven trigger: PR events act as the "doorbell"
+on:
+  pull_request:
+    types:
+      - opened       # Initial doorbell ring - new PR created
+      - synchronize  # Follow-up ring - new commits pushed to PR
+
+jobs:
+  doorbell-heartbeat:
+    runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write  # Required to post comments
+
+    steps:
+      - name: Doorbell Ring Detected
+        run: |
+          echo "🔔 Doorbell Loop triggered!"
+          echo "Event: ${{ github.event.action }}"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+
+      - name: Post Heartbeat to PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > heartbeat.md << 'EOF'
+          ## 🔔 Doorbell Loop - Event Heartbeat
+
+          **Event Received!** The doorbell has rung.
+
+          | Detail | Value |
+          |--------|-------|
+          | **Event Type** | `${{ github.event.action }}` |
+          | **PR Number** | #${{ github.event.pull_request.number }} |
+          | **PR Title** | ${{ github.event.pull_request.title }} |
+          | **Commit SHA** | `${{ github.event.pull_request.head.sha }}` |
+          | **Base Branch** | `${{ github.event.pull_request.base.ref }}` |
+          | **Head Branch** | `${{ github.event.pull_request.head.ref }}` |
+          | **Timestamp** | $(date -u +"%Y-%m-%d %H:%M:%S UTC") |
+          | **Workflow Run** | [View logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
+
+          ---
+
+          ✅ **Event-driven heartbeat confirmed** - This workflow was triggered by a GitHub webhook, not by polling or a timer.
+
+          *This is Project 6: The Doorbell Loop - demonstrating event-driven execution.*
+          EOF
+
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file heartbeat.md \
+            --repo ${{ github.repository }}
