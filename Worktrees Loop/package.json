@@ -1,0 +1,12 @@
+{
+  "name": "codify-the-body",
+  "version": "1.0.0",
+  "description": "Project 5: Parallel maker-checker workflow exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
