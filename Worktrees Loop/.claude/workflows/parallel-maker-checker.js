@@ -139,6 +139,5 @@ return {
     passed: passCount,
     failed: failCount
   },
-  results: results.filter(Boolean),
-  timestamp: new Date().toISOString()
+  results: results.filter(Boolean)
 }

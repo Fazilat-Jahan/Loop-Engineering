@@ -17,7 +17,10 @@ function getLastElement(arr) {
  * Should safely get user's email in uppercase
  */
 function getUserEmail(user) {
-  // BUG: No null/undefined check before accessing property
+  // Fixed: Add null/undefined check and validate email property exists
+  if (!user || !user.email) {
+    return undefined;
+  }
   return user.email.toUpperCase();
 }
 

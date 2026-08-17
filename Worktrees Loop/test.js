@@ -42,19 +42,28 @@ assertEquals(getUserEmail({ email: 'test@example.com' }), 'TEST@EXAMPLE.COM', 's
 assertEquals(getUserEmail({ email: 'user@domain.org' }), 'USER@DOMAIN.ORG', 'should handle different domains');
 
 try {
-  getUserEmail(null);
-  console.log('✗ should handle null user');
-  failed++;
+  const result = getUserEmail(null);
+  if (result === undefined) {
+    console.log('✓ should handle null user');
+    passed++;
+  } else {
+    console.log('✗ should handle null user (returned wrong value)');
+    failed++;
+  }
 } catch (e) {
-  // Currently throws error - test expects graceful handling
   console.log('✗ should handle null user (throws error instead)');
   failed++;
 }
 
 try {
-  getUserEmail({ name: 'John' }); // user without email property
-  console.log('✗ should handle user without email');
-  failed++;
+  const result = getUserEmail({ name: 'John' }); // user without email property
+  if (result === undefined) {
+    console.log('✓ should handle user without email');
+    passed++;
+  } else {
+    console.log('✗ should handle user without email (returned wrong value)');
+    failed++;
+  }
 } catch (e) {
   console.log('✗ should handle user without email (throws error instead)');
   failed++;
