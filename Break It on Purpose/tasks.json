@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Review pull requests",
+    "priority": "high",
+    "status": "briefed"
+  },
+  {
+    "id": 2,
+    "title": "Update documentation",
+    "priority": "medium",
+    "status": "briefed"
+  },
+  {
+    "id": 3,
+    "title": "Fix login bug",
+    "priority": "high",
+    "status": "briefed"
+  },
+  {
+    "id": 4,
+    "title": "Refactor auth module",
+    "priority": "low",
+    "status": "briefed"
+  },
+  {
+    "id": 5,
+    "title": "Write unit tests",
+    "priority": "medium",
+    "status": "briefed"
+  }
+]
