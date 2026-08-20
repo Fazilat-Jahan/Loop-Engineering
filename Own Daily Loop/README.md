@@ -19,15 +19,4 @@ The workflow is driven by `scripts/run_beats.sh`, which repeatedly invokes `scri
 - `progress.md` – Human‑readable log of each beat.
 - `SKILL.md` – Definition of the “Documentation Freshness Inspection” skill used by the loop.
 
-## Getting started
 
-```bash
-# Run the full loop (will stop after 7 beats)
-bash scripts/run_beats.sh
-```
-
-You can also run individual scripts for debugging.
-
-## License
-
-[Specify license if needed]
