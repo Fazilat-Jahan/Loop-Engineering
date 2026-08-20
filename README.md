@@ -60,6 +60,30 @@ Intentionally break a loop and diagnose what went wrong using its saved state an
 
 Build a real recurring workflow using the complete loop architecture: heartbeat, worktree, skill, maker-checker, connector, and spine/state.
 
+### Project 9 — The Skill / Tool Drill
+
+**Concept:** Skills + Tool Definition
+
+Demonstrate how agents utilize explicit custom tools and skills to execute structured tasks deterministically.
+
+### Project 10 — The Secrets Drill
+
+**Concept:** A4 (Secrets) + A2 (The Environment)
+
+Prove why gitignored `.env` files fail in fresh cloud runners and demonstrate credential injection via system environment variables.
+
+### Project 11 — Build the Two-Routine Gate
+
+**Concept:** A3 (API trigger) + A4 (The gate) + A6 (The checklist)
+
+Build a two-routine Human Gate system where drafting happens automatically, but execution/publishing requires an explicit, authenticated API trigger.
+
+### Project 12 — Build a Dreaming Loop
+
+**Concept:** Concept 12 (Spine & Improvement Loop) + Capstone
+
+Build a weekly self-improvement loop that analyzes historical logs, cites concrete failure evidence, and proposes rule changes via PR behind a human gate.
+
 ## 🧠 Concepts
 
 * Loop Engineering
